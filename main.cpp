@@ -7,7 +7,7 @@ int main() {
 
 	DataStructures b;
 	b.loadData();
-
+	cout << "Min Heap Loaded" << endl;
 
 	return 0;
 }
