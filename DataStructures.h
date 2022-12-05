@@ -15,7 +15,9 @@ class DataStructures {
 	};
 
 	Storm* maxHeapName[25000];
+	Storm* maxHeapSafety[25000];
 	int maxHeapNameIndex;
+	int maxHeapSafetyIndex;
 
 	void insertMaxHeapName(Storm* x) {
 		maxHeapName[maxHeapNameIndex] = x;
@@ -30,14 +32,34 @@ class DataStructures {
 		}
 	}
 
-	void heapSortMaxHeapName() {
-		for(int i = 24999; i > 0; i--) {
-			swap(maxHeapName[0], maxHeapName[i]);
-			heapify(i, 0);
+	void insertMaxHeapSafety(Storm* x) {
+		maxHeapSafety[maxHeapSafetyIndex] = x;
+		int child = maxHeapSafetyIndex++;
+		int parent = (child - 1) / 2;
+		while (parent >= 0 && maxHeapSafety[parent]->safety < maxHeapSafety[child]->safety) {
+			Storm* y = maxHeapSafety[parent];
+			maxHeapSafety[parent] = maxHeapSafety[child];
+			maxHeapSafety[child] = y;
+			child = parent;
+			parent = (child - 1) / 2;
 		}
 	}
 
-	void heapify(int i, int x) {
+	void heapSortMaxHeapName() {
+		for(int i = 24999; i > 0; i--) {
+			swap(maxHeapName[0], maxHeapName[i]);
+			heapifyName(i, 0);
+		}
+	}
+
+	void heapSortMaxHeapSafety() {
+		for (int i = 24999; i > 0; i--) {
+			swap(maxHeapSafety[0], maxHeapSafety[i]);
+			heapifySafety(i, 0);
+		}
+	}
+
+	void heapifyName(int i, int x) {
 		int lowest = x;
 		int left, right;
 		left = 2 * x + 1;
@@ -48,19 +70,34 @@ class DataStructures {
 			lowest = right;
 		if (lowest != x) {
 			swap(maxHeapName[x], maxHeapName[lowest]);
-			heapify(i, lowest);
+			heapifyName(i, lowest);
+		}
+	}
+	void heapifySafety(int i, int x) {
+		int lowest = x;
+		int left, right;
+		left = 2 * x + 1;
+		right = 2 * x + 2;
+		if (left < i && maxHeapSafety[left]->safety > maxHeapSafety[lowest]->safety)
+			lowest = left;
+		if (right < i && maxHeapSafety[right]->safety > maxHeapSafety[lowest]->safety)
+			lowest = right;
+		if (lowest != x) {
+			swap(maxHeapSafety[x], maxHeapSafety[lowest]);
+			heapifySafety(i, lowest);
 		}
 	}
 
 	void print() {
 		for (int i = 0; i < 25000; i++) {
-			cout << "Storm: " << maxHeapName[i]->name << endl;
+			cout << "Storm Name: " << maxHeapSafety[i]->safety << endl;
 		}
 	}
 
 public:
 	void loadData() {
 		maxHeapNameIndex = 0;
+		maxHeapSafetyIndex = 0;
 		ifstream i;
 		i.open("StormData.csv");
 		string temp;
@@ -78,11 +115,13 @@ public:
 			curr->casualties = stoi(temp);
 			getline(i, temp, '\n');
 			curr->location = temp;
-			curr->safety = (curr->level * curr->casualties) / 29.9;
+			curr->safety = (curr->level * curr->casualties) / 30.0;
 			//insert into Heaps and Graph here
 			insertMaxHeapName(curr);
+			insertMaxHeapSafety(curr);
 		}
 		heapSortMaxHeapName();
+		heapSortMaxHeapSafety();
 		print();
 	}
 
