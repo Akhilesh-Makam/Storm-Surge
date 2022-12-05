@@ -17,11 +17,11 @@ class DataStructures {
 	Storm* minHeapName[25000];
 	int minHeapNameIndex;
 
-	void insertminHeapName(Storm* x) {
+	void insertMaxHeapName(Storm* x) {
 		minHeapName[minHeapNameIndex] = x;
 		int child = minHeapNameIndex++;
 		int parent = (child - 1) / 2;
-		while (parent >= 0 && minHeapName[parent]->name > minHeapName[child]->name) {
+		while (parent >= 0 && minHeapName[parent]->name < minHeapName[child]->name) {
 			Storm* y = minHeapName[parent];
 			minHeapName[parent] = minHeapName[child];
 			minHeapName[child] = y;
@@ -30,10 +30,10 @@ class DataStructures {
 		}
 	}
 
-	void sortMinHeapName() {
+	void heapSortMaxHeapName() {
 		for (int i = 0; i < 25000; i++) {
-			cout << "Storm: " << minHeapName[i]->name << " | Level: " << minHeapName[i]->level << " | Casualties: " << minHeapName[i]->casualties << " | Location: "
-				<< minHeapName[i]->location << " | Safety: " << fixed << setprecision(2) << minHeapName[i]->safety << endl;
+			cout << "Storm: " << minHeapName[i]->name << " | Level: " << minHeapName[i]->level << " | Casualties: " << minHeapName[i]->casualties << "| Location: "
+				<< minHeapName[i]->location << "| Safety: " << fixed << setprecision(2) << minHeapName[i]->safety << endl;
 		}
 	}
 
@@ -59,9 +59,9 @@ public:
 			curr->location = temp;
 			curr->safety = (curr->level * curr->casualties) / 29.9;
 			//insert into Heaps and Graph here
-			insertminHeapName(curr);
+			insertMaxHeapName(curr);
 		}
-		sortMinHeapName();
+		heapSortMaxHeapName();
 	}
 
 
