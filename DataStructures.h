@@ -14,32 +14,53 @@ class DataStructures {
 		double safety;
 	};
 
-	Storm* minHeapName[25000];
-	int minHeapNameIndex;
+	Storm* maxHeapName[25000];
+	int maxHeapNameIndex;
 
 	void insertMaxHeapName(Storm* x) {
-		minHeapName[minHeapNameIndex] = x;
-		int child = minHeapNameIndex++;
+		maxHeapName[maxHeapNameIndex] = x;
+		int child = maxHeapNameIndex++;
 		int parent = (child - 1) / 2;
-		while (parent >= 0 && minHeapName[parent]->name < minHeapName[child]->name) {
-			Storm* y = minHeapName[parent];
-			minHeapName[parent] = minHeapName[child];
-			minHeapName[child] = y;
+		while (parent >= 0 && maxHeapName[parent]->name < maxHeapName[child]->name) {
+			Storm* y = maxHeapName[parent];
+			maxHeapName[parent] = maxHeapName[child];
+			maxHeapName[child] = y;
 			child = parent;
 			parent = (child - 1) / 2;
 		}
 	}
 
 	void heapSortMaxHeapName() {
+		for(int i = 24999; i > 0; i--) {
+			swap(maxHeapName[0], maxHeapName[i]);
+			heapify(i, 0);
+		}
+	}
+
+	void heapify(int i, int x) {
+		int lowest = x;
+		int left, right;
+		left = 2 * x + 1;
+		right = 2 * x + 2;
+		if (left < i && maxHeapName[left]->name > maxHeapName[lowest]->name)
+			lowest = left;
+		if (right < i && maxHeapName[right]->name > maxHeapName[lowest]->name)
+			lowest = right;
+		if (lowest != x) {
+			swap(maxHeapName[x], maxHeapName[lowest]);
+			heapify(i, lowest);
+		}
+	}
+
+	void print() {
 		for (int i = 0; i < 25000; i++) {
-			cout << "Storm: " << minHeapName[i]->name << " | Level: " << minHeapName[i]->level << " | Casualties: " << minHeapName[i]->casualties << "| Location: "
-				<< minHeapName[i]->location << "| Safety: " << fixed << setprecision(2) << minHeapName[i]->safety << endl;
+			cout << "Storm: " << maxHeapName[i]->name << endl;
 		}
 	}
 
 public:
 	void loadData() {
-		minHeapNameIndex = 0;
+		maxHeapNameIndex = 0;
 		ifstream i;
 		i.open("StormData.csv");
 		string temp;
@@ -62,6 +83,7 @@ public:
 			insertMaxHeapName(curr);
 		}
 		heapSortMaxHeapName();
+		print();
 	}
 
 
