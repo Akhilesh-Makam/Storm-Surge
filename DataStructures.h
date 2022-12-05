@@ -162,7 +162,7 @@ public:
 		heapSortMaxHeapName();
 		heapSortMaxHeapSafety();
 		heapSortMaxHeapCasualties();
-		print();
+		//print();
 	}
 
 
