@@ -26,6 +26,7 @@ int main() {
 	cout << "regions in the world based on a safety index that \n";
 	cout << "takes into account historical casualty rates and \n";
 	cout << "and location frequencies.\n" << endl;
+	cout << "A lower safety index denotes a lower risk of casualties.\n" << endl;
 	cout << "To begin, select a data strucure (type 1 for maxHeap, 2 for Unordered Map).\n" << endl; //used to alternate between data structures
 
 	DataStructures b;
@@ -69,113 +70,167 @@ int main() {
 		getline(cin, s);
 
 		if (s == "1") {
-			//print the storms in lexicongraphical order
+			//print the storms in lexicographical order
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				b.printFunction1M();
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.printAll();
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "2") {
 			//print the storms by ascending safety index
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				//Heap print
 				b.printFunction2M();
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.printSafetyLow();
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "3") {
 			//print the storms in descending safety index
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				//Heap print
 				b.printFunction3M();
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.printSafetyHigh();
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "4") {
 			//print the storms searched by name here
 			string c;
-			cout << "Enter search name: ";
+			cout << "Enter search name (NOTE- names are case sensitive): ";
 			getline(cin, c);
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				//Heap print
 				b.printFunction4M(c);
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.search(c);
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "5") {
 			//print the storms with highest casualty count here
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				//Heap print
 				b.printFunction5M();
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.printCasualtiesHigh();
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "6") {
 			//print the storms by descending safety index
 			if (str == 1) {
+				//keep track of time using time.h clock function
 				t3 = clock();
 				//heap print
 				b.printFunction6M();
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
-				cout << "Time taken: " << time << endl;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
+				//keep track of time using time.h clock function
+				t3 = clock();
 				//unordered map print
 				b.printSafestCities();
+				t4 = clock();
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
+				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 		}
 		else if (s == "7") { //change data structure
