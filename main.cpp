@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "DataStructures.h"
+#include <time.h>
+clock_t t1, t2, t3, t4;
 using namespace std;
 
 /*
@@ -27,8 +29,12 @@ int main() {
 	cout << "To begin, select a data strucure (type 1 for maxHeap, 2 for Unordered Map).\n" << endl;
 
 	DataStructures b;
+	double time = 0.00;
+	t1 = clock(); //check time
 	b.loadData();
-	
+	t2 = clock();
+	time += (double)(t2 - t1)/CLOCKS_PER_SEC;
+
 	int str = 0;
 
 	while (str == 0) {
@@ -46,7 +52,7 @@ int main() {
 			str = 0;
 		}
 	}
-	
+
 	bool over = false;
 	while (!over) {
 
@@ -65,7 +71,11 @@ int main() {
 		if (s == "1") {
 			//print the storms in lexicongraphical order
 			if (str == 1) {
+				t3 = clock();
 				b.printFunction1M();
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -74,8 +84,12 @@ int main() {
 		else if (s == "2") {
 			//print the storms by ascending safety index
 			if (str == 1) {
+				t3 = clock();
 				//Heap print
 				b.printFunction2M();
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -84,8 +98,12 @@ int main() {
 		else if (s == "3") {
 			//print the storms in descending safety index
 			if (str == 1) {
+				t3 = clock();
 				//Heap print
 				b.printFunction3M();
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -97,8 +115,12 @@ int main() {
 			cout << "Enter search name: ";
 			getline(cin, c);
 			if (str == 1) {
-				b.printFunction4M(c);
+				t3 = clock();
 				//Heap print
+				b.printFunction4M(c);
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -107,8 +129,12 @@ int main() {
 		else if (s == "5") {
 			//print the storms here
 			if (str == 1) {
+				t3 = clock();
 				//Heap print
 				b.printFunction5M();
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -117,7 +143,13 @@ int main() {
 		else if (s == "6") {
 			//print the storms by descending safety index
 			if (str == 1) {
+				t3 = clock();
+				//heap print
 				b.printFunction6M();
+				t4 = clock();
+				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				cout << "Time taken: " << time << endl;
+
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -143,7 +175,7 @@ int main() {
 	}
 
 	cout << "Goodbye!" << endl;
-	
+
 
 	return 0;
 }
