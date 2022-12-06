@@ -1,8 +1,11 @@
 #pragma once
+#include <vector>
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <map>
+#include <time.h>
 using namespace std;
 
 class DataStructures {
@@ -165,6 +168,80 @@ public:
 		//print();
 	}
 
+	void printFunction1M() {
+		for (int i = 0; i < 25000; i++) {
+			cout << "Storm: " << maxHeapName[i]->name << " | Level: " << maxHeapName[i]->level << " | Casualties: "
+				<< maxHeapName[i]->casualties << " | Location: " << maxHeapName[i]->location
+				<< " | Safety Index: " << maxHeapName[i]->safety << endl;
+		}
+	}
 
+	void printFunction2M() {
+		for (int i = 0; i < 25000; i++) {
+			cout << "Storm: " << maxHeapSafety[i]->name << " | Safety Index: " << maxHeapSafety[i]->safety << endl;
+		}
+	}
+
+	void printFunction3M() {
+		for (int i = 24999; i >= 0; i--) {
+			cout << "Storm: " << maxHeapSafety[i]->name << " | Safety Index: " << maxHeapSafety[i]->safety << endl;
+		}
+	}
+
+	void printFunction4M(string search) {
+		vector<Storm*> result;
+		for (int i = 0; i < 25000; i++) {
+			if (maxHeapName[i]->name == search) {
+				result.push_back(maxHeapName[i]);
+			}
+		}
+		if (result.size() == 0) {
+			cout << "No storms found :(" << endl;
+			return;
+		}
+		else {
+			for (int i = 0; i < result.size();i++) {
+				cout << "Storm: " << result[i]->name << " | Level: " << result[i]->level << " | Casualties: "
+					<< result[i]->casualties << " | Location: " << result[i]->location
+					<< " | Safety Index: " << result[i]->safety << endl;
+			}
+		}
+	}
+
+	void printFunction5M() {
+		int i = 24999;
+		int max = maxHeapCasualties[i]->casualties;
+		while (maxHeapCasualties[i]->casualties == max) {
+			cout << "Storm: " << maxHeapCasualties[i]->name << " | Location: " << maxHeapCasualties[i]->location << " | Casualties: " << maxHeapCasualties[i]->casualties << endl;
+			i--;
+		}
+	}
+
+	void printFunction6M() {
+		map<string, double> count;
+		for (int i = 0; i < 25000; i++) {
+			count[maxHeapName[i]->location] += maxHeapName[i]->safety;
+		}
+
+		string city1 = "";
+		double max = INT_MAX;
+		string city2 = "";
+		double min = INT_MIN;
+
+		for (auto i = count.begin(); i != count.end();i++) {
+			if (i->second < max) {
+				city1 = i->first;
+				max = i->second;
+			}
+			if (i->second > min) {
+				city2 = i->first;
+				min = i->second;
+			}
+		}
+		cout << "\n";
+		cout << "The safest city is " << city1 << " with a cumulative safety index of " << fixed << setprecision(3) << max << endl;
+		cout << "The most dangerous city is " << city2 << " with a cumulative safety index of " << fixed << setprecision(3) << min << endl;
+
+	}
 		
 };

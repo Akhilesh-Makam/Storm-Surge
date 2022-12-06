@@ -56,42 +56,48 @@ int main() {
 		cout << "3. List storms by highest to lowest safety index" << endl;
 		cout << "4. Search storms by name" << endl;
 		cout << "5. List storms with the highest casualty count" << endl;
-		cout << "6. Find safest city - lowest total safety index" << endl;
+		cout << "6. Find safest/most dangerous city - lowest/highest total safety index" << endl;
 		cout << "7. Switch data structures" << endl;
 		cout << "8. Exit SurgeSafe" << endl;
 		string s = "";
 		getline(cin, s);
 
 		if (s == "1") {
-			//print the storms here
+			//print the storms in lexicongraphical order
 			if (str == 1) {
-				//Heap print
+				b.printFunction1M();
 			}
 			else if (str == 2) {
 				//unordered map print
 			}
 		}
 		else if (s == "2") {
-			//print the storms here
+			//print the storms by ascending safety index
 			if (str == 1) {
 				//Heap print
+				b.printFunction2M();
 			}
 			else if (str == 2) {
 				//unordered map print
 			}
 		}
 		else if (s == "3") {
-			//print the storms here
+			//print the storms in descending safety index
 			if (str == 1) {
 				//Heap print
+				b.printFunction3M();
 			}
 			else if (str == 2) {
 				//unordered map print
 			}
 		}
 		else if (s == "4") {
-			//print the storms here
+			//print the storms searched by name here
+			string c;
+			cout << "Enter search name: ";
+			getline(cin, c);
 			if (str == 1) {
+				b.printFunction4M(c);
 				//Heap print
 			}
 			else if (str == 2) {
@@ -102,29 +108,29 @@ int main() {
 			//print the storms here
 			if (str == 1) {
 				//Heap print
+				b.printFunction5M();
 			}
 			else if (str == 2) {
 				//unordered map print
 			}
 		}
 		else if (s == "6") {
-			//print the storms here
+			//print the storms by descending safety index
 			if (str == 1) {
-				//Heap print
+				b.printFunction6M();
 			}
 			else if (str == 2) {
 				//unordered map print
 			}
 		}
 		else if (s == "7") {
-			//print the storms here
 			if (str == 1) {
 				str = 2;
-				cout << "Data Structure changed to Unordered Map" << endl;
+				cout << "Data Structure changed to Unordered Map\n" << endl;
 			}
 			else if (str == 2) {
 				str = 1;
-				cout << "Data Structure changed to MaxHeap" << endl;
+				cout << "Data Structure changed to MaxHeap\n" << endl;
 				//unordered map print
 			}
 		}
@@ -132,7 +138,7 @@ int main() {
 			over = true;
 		}
 		else {
-			cout << "Please enter a valid operation" << endl;
+			cout << "Please enter a valid operation\n" << endl;
 		}
 	}
 
