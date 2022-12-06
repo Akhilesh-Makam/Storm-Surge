@@ -33,7 +33,7 @@ int main() {
 	t1 = clock(); //check time
 	b.loadData();
 	t2 = clock();
-	time += (double)(t2 - t1)/CLOCKS_PER_SEC;
+	time += (double)(t2 - t1) / CLOCKS_PER_SEC;
 
 	int str = 0;
 
@@ -74,14 +74,15 @@ int main() {
 				t3 = clock();
 				b.printFunction1M();
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.printAll();
 			}
 		}
 		else if (s == "2") {
@@ -91,14 +92,15 @@ int main() {
 				//Heap print
 				b.printFunction2M();
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.printSafetyLow();
 			}
 		}
 		else if (s == "3") {
@@ -108,14 +110,15 @@ int main() {
 				//Heap print
 				b.printFunction3M();
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.printSafetyHigh();
 			}
 		}
 		else if (s == "4") {
@@ -128,31 +131,33 @@ int main() {
 				//Heap print
 				b.printFunction4M(c);
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.search(c);
 			}
 		}
 		else if (s == "5") {
-			//print the storms here
+			//print the storms with highest casualty count here
 			if (str == 1) {
 				t3 = clock();
 				//Heap print
 				b.printFunction5M();
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.printCasualtiesHigh();
 			}
 		}
 		else if (s == "6") {
@@ -162,14 +167,15 @@ int main() {
 				//heap print
 				b.printFunction6M();
 				t4 = clock();
-				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
+				b.printSafestCities();
 			}
 		}
 		else if (s == "7") {
