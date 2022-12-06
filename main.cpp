@@ -76,6 +76,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -90,6 +93,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -104,6 +110,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -121,6 +130,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -135,6 +147,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
@@ -149,7 +164,9 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3)/CLOCKS_PER_SEC;
 				cout << "Time taken: " << time << endl;
-
+				time -= (double)(t4 - t3)/CLOCKS_PER_SEC;
+				t4 = 0;
+				t3 = 0;
 			}
 			else if (str == 2) {
 				//unordered map print
