@@ -26,7 +26,7 @@ int main() {
 	cout << "regions in the world based on a safety index that \n";
 	cout << "takes into account historical casualty rates and \n";
 	cout << "and location frequencies.\n" << endl;
-	cout << "To begin, select a data strucure (type 1 for maxHeap, 2 for Unordered Map).\n" << endl;
+	cout << "To begin, select a data strucure (type 1 for maxHeap, 2 for Unordered Map).\n" << endl; //used to alternate between data structures
 
 	DataStructures b;
 	double time = 0.00;
@@ -37,7 +37,7 @@ int main() {
 
 	int str = 0;
 
-	while (str == 0) {
+	while (str == 0) { //get valid input for data structure
 		try {
 			string s = "";
 			getline(cin, s);
@@ -178,7 +178,7 @@ int main() {
 				b.printSafestCities();
 			}
 		}
-		else if (s == "7") {
+		else if (s == "7") { //change data structure
 			if (str == 1) {
 				str = 2;
 				cout << "Data Structure changed to Unordered Map\n" << endl;
@@ -189,10 +189,10 @@ int main() {
 				//unordered map print
 			}
 		}
-		else if (s == "8") {
+		else if (s == "8") { //end SurgeSafe
 			over = true;
 		}
-		else {
+		else {//if invalid operation
 			cout << "Please enter a valid operation\n" << endl;
 		}
 	}

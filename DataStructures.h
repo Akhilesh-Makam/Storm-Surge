@@ -10,6 +10,7 @@
 using namespace std;
 
 class DataStructures {
+	//storm pointer class that will store data
 	struct Storm {
 		string name;
 		int level;
@@ -17,7 +18,7 @@ class DataStructures {
 		string location;
 		double safety;
 	};
-
+	//maxHeaps used to store data that will be sorted by HeapSort
 	Storm* maxHeapName[25000];
 	Storm* maxHeapSafety[25000];
 	Storm* maxHeapCasualties[25000];
@@ -140,6 +141,7 @@ class DataStructures {
 
 	//prints all the casualties of each storm
 	void printCasualties(unordered_map<string, vector<Storm*>> m1, map<int, vector<string>> m2) {
+		//does the same as the print safety functions except with casualties
 		for (auto it : m1) {
 			for (auto it2 : it.second) {
 				vector<string> v;
@@ -159,10 +161,11 @@ class DataStructures {
 		map<int, vector<string>>::reverse_iterator it2;
 		for (it2 = m2.rbegin(); it2 != m2.rend(); it2++) {
 			for (int i = it2->second.size() - 1; i >= 0; i--) {
-				cout << "Storm: " << it2->second[i] << " | Casualties: " << setprecision(2) << fixed << it2->first << endl;
+				if (it2->first == 300) {
+					cout << "Storm: " << it2->second[i] << " | Casualties: " << setprecision(2) << fixed << it2->first << endl;
+				}
 			}
 		}
-
 	}
 
 	//is a search function and searches the name of the storm and prints all the storms with said name and their data
@@ -180,7 +183,7 @@ class DataStructures {
 		}
 	}
 
-	void insertMaxHeapName(Storm* x) {
+	void insertMaxHeapName(Storm* x) { //insert Storm pointer into name MaxHeap (1)
 		maxHeapName[maxHeapNameIndex] = x;
 		int child = maxHeapNameIndex++;
 		int parent = (child - 1) / 2;
@@ -193,7 +196,7 @@ class DataStructures {
 		}
 	}
 
-	void insertMaxHeapSafety(Storm* x) {
+	void insertMaxHeapSafety(Storm* x) { //insert Storm pointer into safety MaxHeap (1)
 		maxHeapSafety[maxHeapSafetyIndex] = x;
 		int child = maxHeapSafetyIndex++;
 		int parent = (child - 1) / 2;
@@ -206,7 +209,7 @@ class DataStructures {
 		}
 	}
 
-	void insertMaxHeapCasualties(Storm* x) {
+	void insertMaxHeapCasualties(Storm* x) { //insert Storm pointer into casualties MaxHeap (1)
 		maxHeapCasualties[maxHeapCasualtiesIndex] = x;
 		int child = maxHeapCasualtiesIndex++;
 		int parent = (child - 1) / 2;
@@ -219,28 +222,28 @@ class DataStructures {
 		}
 	}
 
-	void heapSortMaxHeapName() {
+	void heapSortMaxHeapName() { // heap sort the Name maxHeap
 		for(int i = 24999; i > 0; i--) {
 			swap(maxHeapName[0], maxHeapName[i]);
 			heapifyName(i, 0);
 		}
 	}
 
-	void heapSortMaxHeapSafety() {
+	void heapSortMaxHeapSafety() { // heap sort the safety maxHeap
 		for (int i = 24999; i > 0; i--) {
 			swap(maxHeapSafety[0], maxHeapSafety[i]);
 			heapifySafety(i, 0);
 		}
 	}
 
-	void heapSortMaxHeapCasualties() {
+	void heapSortMaxHeapCasualties() { // heap sort the casualties maxHeap
 		for (int i = 24999; i > 0; i--) {
 			swap(maxHeapCasualties[0], maxHeapCasualties[i]);
 			heapifyCasualties(i, 0);
 		}
 	}
 
-	void heapifyName(int i, int x) {
+	void heapifyName(int i, int x) { //heapify for heap sort (2)
 		int lowest = x;
 		int left, right;
 		left = 2 * x + 1;
@@ -254,7 +257,7 @@ class DataStructures {
 			heapifyName(i, lowest);
 		}
 	}
-	void heapifySafety(int i, int x) {
+	void heapifySafety(int i, int x) { //heapify for heap sort (2)
 		int lowest = x;
 		int left, right;
 		left = 2 * x + 1;
@@ -269,7 +272,7 @@ class DataStructures {
 		}
 	}
 
-	void heapifyCasualties(int i, int x) {
+	void heapifyCasualties(int i, int x) { //heapify for heap sort (2)
 		int lowest = x;
 		int left, right;
 		left = 2 * x + 1;
@@ -284,14 +287,14 @@ class DataStructures {
 		}
 	}
 
-	void print() {
+	void print() { //print function for testing purposes
 		for (int i = 0; i < 25000; i++) {
 			cout << "Storm Deaths: " << maxHeapCasualties[i]->casualties << endl;
 		}
 	}
 
 public:
-	void loadData() {
+	void loadData() { //loads data from StormData.csv file, creates Storm pointer objects, and pushes them into maxHeaps and unordered set
 		vector<Storm*> v;
 		maxHeapNameIndex = 0;
 		maxHeapSafetyIndex = 0;
@@ -328,13 +331,13 @@ public:
 				mapByStorm[curr->name].push_back(curr);
 			}
 		}
-		heapSortMaxHeapName();
+		heapSortMaxHeapName(); //calls Heap sort on all the MaxHeaps after all the insertions
 		heapSortMaxHeapSafety();
 		heapSortMaxHeapCasualties();
 		//print();
 	}
 
-	void printFunction1M() {
+	void printFunction1M() { //prints the storms in lexicongraphical order from name MaxHeap
 		for (int i = 0; i < 25000; i++) {
 			cout << "Storm: " << maxHeapName[i]->name << " | Level: " << maxHeapName[i]->level << " | Casualties: "
 				<< maxHeapName[i]->casualties << " | Location: " << maxHeapName[i]->location
@@ -342,21 +345,21 @@ public:
 		}
 	}
 
-	void printFunction2M() {
+	void printFunction2M() {  //prints the storms in ascending safety order from safety MaxHeap
 		for (int i = 0; i < 25000; i++) {
 			cout << "Storm: " << maxHeapSafety[i]->name << " | Safety Index: " << maxHeapSafety[i]->safety << endl;
 		}
 	}
 
-	void printFunction3M() {
+	void printFunction3M() {  //prints the storms in descending safety order from safety MaxHeap
 		for (int i = 24999; i >= 0; i--) {
 			cout << "Storm: " << maxHeapSafety[i]->name << " | Safety Index: " << maxHeapSafety[i]->safety << endl;
 		}
 	}
 
-	void printFunction4M(string search) {
+	void printFunction4M(string search) { //searches the name MaxHeap for storms matching the user inputted string, prints out the storm(s) info of storms found
 		vector<Storm*> result;
-		for (int i = 0; i < 25000; i++) {
+		for (int i = 0; i < 25000; i++) { 
 			if (maxHeapName[i]->name == search) {
 				result.push_back(maxHeapName[i]);
 			}
@@ -374,7 +377,7 @@ public:
 		}
 	}
 
-	void printFunction5M() {
+	void printFunction5M() { //prints the storms in descending casuality count from casualty MaxHeap
 		int i = 24999;
 		int max = maxHeapCasualties[i]->casualties;
 		while (maxHeapCasualties[i]->casualties == max) {
@@ -383,7 +386,7 @@ public:
 		}
 	}
 
-	void printFunction6M() {
+	void printFunction6M() { //finds the cumulative safety index of each location, prints out the safest and most dangerous city according to cumulative safety index
 		map<string, double> count;
 		for (int i = 0; i < 25000; i++) {
 			count[maxHeapName[i]->location] += maxHeapName[i]->safety;
