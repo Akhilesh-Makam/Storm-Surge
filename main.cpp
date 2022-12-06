@@ -78,6 +78,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -90,6 +91,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -105,6 +107,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -117,6 +120,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -132,6 +136,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -144,6 +149,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -162,6 +168,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -174,6 +181,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -189,6 +197,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -201,6 +210,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -216,6 +226,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
@@ -228,6 +239,7 @@ int main() {
 				t4 = clock();
 				time += (double)(t4 - t3) / CLOCKS_PER_SEC;
 				cout << "Time taken: " << fixed << setprecision(4) << time << " seconds" << endl;
+				cout << endl;
 				time -= (double)(t4 - t3) / CLOCKS_PER_SEC;
 				t4 = 0;
 				t3 = 0;
